@@ -40,7 +40,14 @@ switch (command) {
         notes.getNote(argv.title);
         break;
     case 'remove':
-        notes.removeNote(argv.title);
+        var res = notes.removeNote(argv.title);
+        // if (res) {
+        //     console.log('success remove');
+        // } else {
+        //     console.log('nothing to delete');
+        // }
+        var message = res? 'Note was removed' : 'Note not found';
+        console.log(message);
         break;
     default:
         break;

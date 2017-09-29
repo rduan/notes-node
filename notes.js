@@ -53,6 +53,11 @@ var getNote = (title) =>{
 
 var removeNote = (title)=>{
     console.log('remove');
+    var notes = fetchNotes();
+    var newNotes = notes.filter((n)=>n.title !== title);
+    saveNotes(newNotes);
+    return notes.length !== newNotes.length;
+
 }
 
 module.exports = {

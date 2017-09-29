@@ -24,7 +24,14 @@ console.log('Yargs',argv);
 
 switch (command) {
     case 'add':
-        notes.addNote(argv.title, argv.body);
+        var note = notes.addNote(argv.title, argv.body);
+        if(note) {
+            console.log('success create note');
+            console.log(`Title: ${note.title}`);
+            console.log(`Body: ${note.body}`);
+        } else {
+            console.log('unsuccess');
+        }
         break;
     case 'list':
         notes.getAll();

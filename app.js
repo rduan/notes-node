@@ -27,8 +27,9 @@ switch (command) {
         var note = notes.addNote(argv.title, argv.body);
         if(note) {
             console.log('success create note');
-            console.log(`Title: ${note.title}`);
-            console.log(`Body: ${note.body}`);
+            // console.log(`Title: ${note.title}`);
+            // console.log(`Body: ${note.body}`.);
+            notes.logNote(note);
         } else {
             console.log('unsuccess');
         }
@@ -37,7 +38,16 @@ switch (command) {
         notes.getAll();
         break;
     case 'read':
-        notes.getNote(argv.title);
+        var note=notes.getNote(argv.title);
+        if (note) {
+            console.log('success read note');
+            // console.log(`Title: ${note.title}`);
+            // console.log(`Body: ${note.body}`);
+            notes.logNote(note);
+        } else {
+            console.log('note not found')
+        }
+
         break;
     case 'remove':
         var res = notes.removeNote(argv.title);

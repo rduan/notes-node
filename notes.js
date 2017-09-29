@@ -49,6 +49,9 @@ var getAll = ()=>{
 
 var getNote = (title) =>{
     console.log('get note');
+    var notes = fetchNotes();
+
+    return notes.find((n)=>n.title === title); 
 };
 
 var removeNote = (title)=>{
@@ -60,9 +63,16 @@ var removeNote = (title)=>{
 
 }
 
+var logNote=(note)=> {
+    console.log('--note--');
+    console.log(`Title: ${note.title}`);
+    console.log(`Body: ${note.body}`);
+}
+
 module.exports = {
     addNote,
     getAll,
     getNote,
-    removeNote
+    removeNote,
+    logNote
 }

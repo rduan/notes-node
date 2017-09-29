@@ -14,13 +14,13 @@ console.log(process.argv);
 console.log('Command:', command);
 console.log('Yargs',argv);
 
-if (command === 'add') {
-    //console.log('add')
-    notes.addNote(argv.title, argv.body);
-} else if (command === 'list') {
-    //console.log('list')
-    notes.getAll();
-}
+// if (command === 'add') {
+//     //console.log('add')
+//     notes.addNote(argv.title, argv.body);
+// } else if (command === 'list') {
+//     //console.log('list')
+//     notes.getAll();
+// }
 
 switch (command) {
     case 'add':

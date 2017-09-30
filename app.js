@@ -4,7 +4,26 @@ const _ = require('lodash');
 const yargs = require('yargs');
 
 
-const argv = yargs.argv;
+//const argv = yargs.argv;
+const argv = yargs
+    .command('add','Add a new note',{
+        title: {
+            describe: 'Title of note',
+            demand: true,
+            alias:  't'
+        },
+        body: {
+            describe:   'Body of note',
+            demand: true,
+            alias: 'b',
+        }
+    })
+    .command('list','List all notes')
+    .command('read','Read a note')
+    .command('remove','Remove a note')
+    .help()
+    .argv;
+
 const notes = require('./notes');
 
 //var command = process.argv[2];
@@ -35,7 +54,11 @@ switch (command) {
         }
         break;
     case 'list':
-        notes.getAll();
+        var anotes = notes.getAll();
+        console.log('all notes');
+        anotes.forEach(function(element) {
+            notes.logNote(element);
+        }, this);
         break;
     case 'read':
         var note=notes.getNote(argv.title);
